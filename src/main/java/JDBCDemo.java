@@ -18,6 +18,7 @@ public class JDBCDemo {
         }
 
         }
+    //  method for inserting a student into student table 
         private static void insertStudent(Connection conn,int id,String name, String email){
         String SQL="insert into student (name,email) values ('"+name+"','"+email+"')";
         try (Statement stmt =conn.createStatement()) {
@@ -27,6 +28,7 @@ public class JDBCDemo {
             e.printStackTrace();
         }
         }
+    // this method for printing all students from student table
         private static void selectStudent(Connection conn) throws SQLException {
          String SQL="SELECT * FROM student";
         try(Statement stmt = conn.createStatement()) {
@@ -42,6 +44,7 @@ public class JDBCDemo {
             throw new RuntimeException(e);
         }
     }
+    //  method for updating a student Example name ,email etc
     private static void updateStudent(Connection conn, int id, String name, String email) {
         String SQL = "UPDATE student SET name='" + name + "', email='" + email + "' WHERE id=" + id;
 
@@ -53,6 +56,7 @@ public class JDBCDemo {
         }
     }
 
+    // method for deletion
     private static void deleteStudent(Connection conn, int id) {
         String SQL = "DELETE FROM student WHERE id=" + id;
         try(Statement stmt = conn.createStatement()){
